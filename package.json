@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "type-check": "tsc",
     "create-post": "ts-node -O '{\"module\": \"commonjs\"}' ./scripts/createPost.ts"
