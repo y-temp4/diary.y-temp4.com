@@ -14,7 +14,7 @@ export default function PostPage(params: Post & { content: string }) {
     router.push(`/posts/${params.slug}`)
   }, [])
   return (
-    <Layout title={params.title} pagePath={`posts/${params.slug}`}>
+    <Layout title={params.title} pagePath={`/posts/${params.slug}`}>
       <h1 className="font-bold text-2xl">{params.title}</h1>
       <time className="text-sm text-gray-700 mb-1 block">
         {params.createdAt}

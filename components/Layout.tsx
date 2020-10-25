@@ -15,7 +15,7 @@ const Layout = ({
   description = `y-temp4's English Diary.`,
   pagePath = '',
 }: Props) => {
-  const baseURL = 'https://diary.y-temp4.com/'
+  const baseURL = 'https://diary.y-temp4.com'
   return (
     <>
       <Head>
@@ -26,13 +26,13 @@ const Layout = ({
         <meta property="og:description" content={description} />
         <meta property="og:type" content="blog" />
         <meta property="og:url" content={`${baseURL}${pagePath}`} />
-        <meta property="og:image" content={`${baseURL}ogp.jpg`} />
+        <meta property="og:image" content={`${baseURL}/ogp.jpg`} />
         <meta property="og:site_name" content={title} />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content={`${baseURL}ogp.jpg`} />
+        <meta name="twitter:url" content={`${baseURL}/ogp.jpg`} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`${baseURL}ogp.jpg`} />
+        <meta name="twitter:image" content={`${baseURL}/ogp.jpg`} />
         <link rel="canonical" href={`${baseURL}${pagePath}`} />
       </Head>
       <header className="text-center mt-10 mb-12">

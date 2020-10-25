@@ -11,7 +11,7 @@ export default function Category({ posts }: { posts: Post[] }) {
   const router = useRouter()
   const { category } = router.query
   return (
-    <Layout pagePath={`categories/${category}`}>
+    <Layout pagePath={`/categories/${category}`}>
       <h2 className="text-xl mb-3">category: {category}</h2>
       <PostList posts={posts} />
     </Layout>
