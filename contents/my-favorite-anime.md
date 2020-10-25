@@ -36,5 +36,3 @@ So I tried out the animated version and it was very interesting. Then I read all
 After that, I started watching a lot of other anime. In the beginning, I think I was watching Toradora! and Lucky Star, for example.
 
 As I mentioned at the beginning, I haven't been watching a lot of anime lately, but if I get a chance, it would be nice to watch anime again.
-
-[asin:B009EN3M7C:detail]

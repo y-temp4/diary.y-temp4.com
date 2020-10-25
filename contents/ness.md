@@ -24,5 +24,3 @@ In a game called Smash Brothers, I often use a character named “**Ness**”.
 I'm pretty sure I started using Ness because a friend of mine used it a lot and I saw it and started imitating it.
 
 The character of Ness tends to be more quirky and generally disliked than other characters, but I personally enjoy using him and will continue to use him because he's a fun character to use. 😏
-
-[asin:B00TS0UK0I:detail]
