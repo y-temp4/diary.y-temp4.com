@@ -14,7 +14,7 @@ const Layout = ({ children, title = `y-temp4's Diary` }: Props) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <header className="text-center my-10">
+    <header className="text-center mt-10 mb-12">
       <h1 className="font-bold text-2xl">
         <Link href="/">y-temp4's Diary</Link>
       </h1>

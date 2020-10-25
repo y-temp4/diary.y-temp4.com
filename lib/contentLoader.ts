@@ -1,4 +1,5 @@
-import path from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 import remark from 'remark'
 import html from 'remark-html'
 import matter from 'gray-matter'
@@ -7,12 +8,22 @@ import { formatDate } from 'lib/date'
 const DIR = path.join(process.cwd(), 'contents')
 const EXTENSION = '.md'
 
-export function listContentFiles({ fs }) {
+type Fs = typeof fs
+
+export function listContentFiles({ fs }: { fs: Fs }) {
   const filenames = fs.readdirSync(DIR)
   return filenames.filter((filename) => path.parse(filename).ext === EXTENSION)
 }
 
-export async function readContentFile({ fs, slug, filename }) {
+export async function readContentFile({
+  fs,
+  filename,
+  slug,
+}: {
+  fs: Fs
+  filename: string
+  slug?: string
+}) {
   if (slug === undefined) {
     slug = path.parse(filename).name
   }
@@ -30,7 +41,7 @@ export async function readContentFile({ fs, slug, filename }) {
   }
 }
 
-export async function readContentFiles({ fs }) {
+export async function readContentFiles({ fs }: { fs: Fs }) {
   const promisses = listContentFiles({ fs }).map((filename) =>
     readContentFile({ fs, filename })
   )
@@ -39,7 +50,7 @@ export async function readContentFiles({ fs }) {
 }
 
 function sortWithProp(name: string, reversed: boolean) {
-  return (a, b) => {
+  return (a: any, b: any) => {
     if (reversed) {
       return a[name] < b[name] ? 1 : -1
     } else {
