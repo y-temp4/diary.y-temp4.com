@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/15be1515-b1d2-4aec-8a15-084c55d716a0/deploy-status)](https://app.netlify.com/sites/yt4diary/deploys)
 
-My english blog.
+My English blog.
 
 ## Usage
 
