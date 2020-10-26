@@ -13,7 +13,7 @@ export default function Category({ posts }: { posts: Post[] }) {
   return (
     <Layout pagePath={`/categories/${category}`}>
       <h2 className="text-xl mb-3">category: {category}</h2>
-      <PostList posts={posts} />
+      <PostList posts={posts} showCategory={false} />
     </Layout>
   )
 }
@@ -21,7 +21,8 @@ export default function Category({ posts }: { posts: Post[] }) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const posts = await readContentFiles({ fs })
   const categoryPosts = posts.filter((post) =>
-    post.category.includes(params?.category)
+    // @ts-ignore
+    (post.category || []).includes(params?.category)
   )
   return {
     props: {

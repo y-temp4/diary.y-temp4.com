@@ -29,7 +29,7 @@ export async function readContentFile({
   }
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
-  const { title, createdAt: rawCteatedAt, category } = matterResult.data
+  const { title = '', createdAt: rawCteatedAt, category } = matterResult.data
   const parsedContent = await remark().use(html).process(matterResult.content)
   const content = parsedContent.toString()
   return {
@@ -38,6 +38,12 @@ export async function readContentFile({
     content,
     slug,
     category,
+  } as {
+    title: string
+    createdAt: string
+    content: string
+    slug: string
+    category?: string[]
   }
 }
 

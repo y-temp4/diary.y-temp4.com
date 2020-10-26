@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import type { Post } from 'types'
 
-export function PostList({ posts }: { posts: Post[] }) {
+export function PostList({
+  posts,
+  showCategory = true,
+}: {
+  posts: Post[]
+  showCategory?: boolean
+}) {
   return (
     <>
       {posts.map((post) => (
@@ -10,7 +16,7 @@ export function PostList({ posts }: { posts: Post[] }) {
             <Link href={`/posts/${post.slug}`}>{post.title}</Link>
           </h2>
           <time className="text-sm text-gray-700 block">{post.createdAt}</time>
-          {post.category && (
+          {showCategory && post.category && (
             <ul>
               {post.category.map((category) => (
                 <li key={category}>
