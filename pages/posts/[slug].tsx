@@ -19,7 +19,11 @@ export default function PostPage({
   relatedPosts: Post[]
 }) {
   return (
-    <Layout title={post.title} pagePath={`/posts/${post.slug}`}>
+    <Layout
+      title={post.title}
+      pagePath={`/posts/${post.slug}`}
+      description={post.description}
+    >
       <h1 className="font-bold text-2xl">{post.title}</h1>
       <time className="text-sm text-gray-700 mb-1 block">{post.createdAt}</time>
       {post.category && (

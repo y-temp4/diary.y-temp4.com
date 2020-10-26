@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import { baseURL } from 'constants/domain'
 
 type Props = {
   children?: ReactNode
@@ -15,7 +16,6 @@ const Layout = ({
   description = `y-temp4's English Diary.`,
   pagePath = '',
 }: Props) => {
-  const baseURL = 'https://diary.y-temp4.com'
   const siteName = `y-temp4's Diary`
   const ogpImagePath = '/ogp.jpg'
   return (

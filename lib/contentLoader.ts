@@ -3,6 +3,7 @@ import * as path from 'path'
 import remark from 'remark'
 import html from 'remark-html'
 import matter from 'gray-matter'
+import strip from 'strip-markdown'
 import { formatDate } from 'lib/date'
 
 const DIR = path.join(process.cwd(), 'contents')
@@ -32,18 +33,26 @@ export async function readContentFile({
   const { title = '', createdAt: rawCteatedAt, category } = matterResult.data
   const parsedContent = await remark().use(html).process(matterResult.content)
   const content = parsedContent.toString()
+  const MAX_LENGTH = 90
+  const description = `${(
+    await remark().use(strip).process(matterResult.content)
+  )
+    .toString()
+    .substr(0, MAX_LENGTH)} ...`
   return {
     title,
     createdAt: formatDate(rawCteatedAt),
     content,
     slug,
     category,
+    description,
   } as {
     title: string
     createdAt: string
     content: string
     slug: string
     category?: string[]
+    description: string
   }
 }
 
