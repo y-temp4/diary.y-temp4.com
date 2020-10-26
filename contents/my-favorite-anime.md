@@ -3,8 +3,6 @@ title: About my favorite anime
 category:
   - entertainment
 createdAt: 2020-09-18T10:11:56+09:00
-URL: https://diary.y-temp4.com/entry/my-favorite-anime
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613628673062
 ---
 
 <!--

@@ -3,8 +3,6 @@ title: I bought a weighted blanket
 category:
   - lifehack
 createdAt: 2020-09-17T19:38:15+09:00
-URL: https://diary.y-temp4.com/entry/weighted-blanket
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613628714429
 ---
 
 <!--

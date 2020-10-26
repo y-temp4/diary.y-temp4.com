@@ -3,8 +3,6 @@ title: I decided to get braces
 category:
   - self
 createdAt: 2020-10-20T20:25:06+09:00
-URL: https://diary.y-temp4.com/entry/i-decided-to-get-braces
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613643096431
 ---
 
 <!--

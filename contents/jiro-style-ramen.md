@@ -3,8 +3,6 @@ title: It's been a while since I ate Jiro-style ramen
 category:
   - food
 createdAt: 2020-09-15T23:10:33+09:00
-URL: https://diary.y-temp4.com/entry/jiro-style-ramen
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613628394093
 ---
 
 <!-- ひさびさに二郎系ラーメンを食べた

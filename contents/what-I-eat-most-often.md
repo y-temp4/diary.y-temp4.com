@@ -3,8 +3,6 @@ title: What I eat most often
 category:
   - food
 createdAt: 2020-09-20T11:03:50+09:00
-URL: https://diary.y-temp4.com/entry/what-I-eat-most-often
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613629363052
 ---
 
 <!--

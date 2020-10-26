@@ -1,10 +1,8 @@
 ---
-title: "Self Introduction: Yuki Terashima"
+title: 'Self Introduction: Yuki Terashima'
 category:
   - self
 createdAt: 2020-09-16T19:26:07+09:00
-URL: https://diary.y-temp4.com/entry/self-introduction
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613628664526
 ---
 
 <!--

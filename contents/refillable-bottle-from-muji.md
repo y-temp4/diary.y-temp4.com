@@ -3,8 +3,6 @@ title: I bought a refillable bottle from MUJI
 category:
   - lifehack
 createdAt: 2020-09-22T14:35:22+09:00
-URL: https://diary.y-temp4.com/entry/refillable-bottle-from-muji
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613630900665
 ---
 
 <!--

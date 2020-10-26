@@ -3,8 +3,6 @@ title: I hadn't been to a Yakiniku in three months
 category:
   - food
 createdAt: 2020-10-03T20:19:06+09:00
-URL: https://diary.y-temp4.com/entry/i-hadnt-been-to-a-yakiniku-in-three-months
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613635993608
 ---
 
 <!--

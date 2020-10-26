@@ -3,8 +3,6 @@ title: A character I often use in Smash Bros.
 category:
   - entertainment
 createdAt: 2020-09-21T15:58:57+09:00
-URL: https://diary.y-temp4.com/entry/ness
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613629284806
 ---
 
 <!--

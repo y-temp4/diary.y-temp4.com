@@ -3,8 +3,6 @@ title: I bought a new external hard drive
 category:
   - tech
 createdAt: 2020-09-23T20:34:35+09:00
-URL: https://diary.y-temp4.com/entry/new-hdd
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613631371243
 ---
 
 <!--

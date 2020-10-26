@@ -3,8 +3,6 @@ title: I'm considering getting braces
 category:
   - self
 createdAt: 2020-10-01T12:37:10+09:00
-URL: https://diary.y-temp4.com/entry/considering-getting-braces
-EditURL: https://blog.hatena.ne.jp/y_temp4/yt4daily.hatenablog.com/atom/entry/26006613634886019
 ---
 
 <!--
