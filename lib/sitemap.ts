@@ -4,7 +4,7 @@ import { baseURL } from 'constants/domain'
 const generatePostSitemapItem = (post: Post) => `
 <url>
   <loc>${baseURL}/posts/${post.slug}</loc>
-  <lastmod>${new Date(post.createdAt).toUTCString()}</lastmod>
+  <lastmod>${new Date(post.createdAt).toISOString()}</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 `
