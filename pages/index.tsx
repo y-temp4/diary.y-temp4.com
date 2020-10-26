@@ -1,4 +1,5 @@
 import fs from 'fs'
+import Link from 'next/link'
 import Head from 'next/head'
 import Layout from 'components/Layout'
 import { PostList } from 'components/PostList'
@@ -22,6 +23,14 @@ const IndexPage = ({ posts }: { posts: Post[] }) => (
     <Layout>
       <PostList posts={posts} />
     </Layout>
+    <footer className="max-w-screen-sm mx-auto mb-10 px-3 flex justify-between">
+      <a href="http://y-temp4.com" target="_blank" className="block">
+        About me
+      </a>
+      <Link href="/rss.xml">
+        <a className="block">rss</a>
+      </Link>
+    </footer>
   </>
 )
 
