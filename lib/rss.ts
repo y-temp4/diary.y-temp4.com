@@ -1,7 +1,7 @@
 import { Post } from 'types/post'
 import { baseURL } from 'constants/domain'
 
-const generateRssItem = (post: Post): string => `
+const generateRssItem = (post: Post) => `
 <item>
   <guid>${baseURL}/posts/${post.slug}</guid>
   <title>${post.title}</title>

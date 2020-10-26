@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://diary.y-temp4.com/sitemap.xml
