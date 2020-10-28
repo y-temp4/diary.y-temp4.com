@@ -15,7 +15,7 @@ export default function PostPage({
   post,
   relatedPosts,
 }: {
-  post: Post & { content: string }
+  post: Post
   relatedPosts: Post[]
 }) {
   return (

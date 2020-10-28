@@ -8,7 +8,7 @@ import Layout from 'components/Layout'
 import { listContentFiles, readContentFile } from 'lib/contentLoader'
 import type { Post } from 'types'
 
-export default function PostPage(params: Post & { content: string }) {
+export default function PostPage(params: Post) {
   const router = useRouter()
   useEffect(() => {
     router.push(`/posts/${params.slug}`)

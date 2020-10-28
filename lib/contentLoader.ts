@@ -5,6 +5,7 @@ import html from 'remark-html'
 import matter from 'gray-matter'
 import strip from 'strip-markdown'
 import { formatDate } from 'lib/date'
+import { Post } from 'types/post'
 
 const DIR = path.join(process.cwd(), 'contents')
 const EXTENSION = '.md'
@@ -24,7 +25,7 @@ export async function readContentFile({
   fs: Fs
   filename: string
   slug?: string
-}) {
+}): Promise<Post> {
   if (slug === undefined) {
     slug = path.parse(filename).name
   }
@@ -46,13 +47,6 @@ export async function readContentFile({
     slug,
     category,
     description,
-  } as {
-    title: string
-    createdAt: string
-    content: string
-    slug: string
-    category?: string[]
-    description: string
   }
 }
 
@@ -61,10 +55,10 @@ export async function readContentFiles({ fs }: { fs: Fs }) {
     readContentFile({ fs, filename })
   )
   const contents = await Promise.all(promisses)
-  return contents.sort(sortWithProp('createdAt', true))
+  return contents.sort(sortByProp('createdAt', true))
 }
 
-function sortWithProp(name: string, reversed: boolean) {
+function sortByProp(name: string, reversed: boolean) {
   return (a: any, b: any) => {
     if (reversed) {
       return a[name] < b[name] ? 1 : -1
