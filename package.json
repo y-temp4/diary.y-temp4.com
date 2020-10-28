@@ -7,7 +7,9 @@
     "export": "next export",
     "start": "next start",
     "type-check": "tsc",
-    "create-post": "ts-node -O '{\"module\": \"commonjs\"}' ./scripts/createPost.ts"
+    "create-post": "ts-node -O '{\"module\": \"commonjs\"}' ./scripts/createPost.ts",
+    "ncu:dev": "yarn npm-check-updates --dep dev -u",
+    "ncu:prd": "yarn npm-check-updates --dep prod -u"
   },
   "dependencies": {
     "gray-matter": "4.0.2",
@@ -23,6 +25,7 @@
     "@types/prompts": "2.0.9",
     "@types/react": "16.9.16",
     "@types/react-dom": "16.9.4",
+    "npm-check-updates": "9.2.3",
     "postcss-preset-env": "6.7.0",
     "prettier": "2.1.2",
     "prompts": "2.3.2",
