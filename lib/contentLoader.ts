@@ -40,7 +40,6 @@ export async function readContentFile({
   )
     .toString()
     .substring(0, MAX_LENGTH)} ...`
-  console.log(description)
   return {
     title,
     createdAt: formatDate(rawCreatedAt),
