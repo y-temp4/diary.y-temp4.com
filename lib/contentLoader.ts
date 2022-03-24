@@ -39,7 +39,8 @@ export async function readContentFile({
     await remark().use(strip).process(matterResult.content)
   )
     .toString()
-    .substr(0, MAX_LENGTH)} ...`
+    .substring(0, MAX_LENGTH)} ...`
+  console.log(description)
   return {
     title,
     createdAt: formatDate(rawCreatedAt),
