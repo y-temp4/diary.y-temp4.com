@@ -17,3 +17,11 @@ body {
 a {
   @apply underline;
 }
+
+.post-body > p {
+  margin-bottom: 1em;
+}
+
+.post-body > ul {
+  @apply list-disc list-inside mb-4;
+}

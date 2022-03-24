@@ -36,11 +36,6 @@ export default function PostPage(params: Post) {
         className="post-body"
         dangerouslySetInnerHTML={{ __html: params.content }}
       />
-      <style jsx global>{`
-        .post-body > p {
-          margin-bottom: 1em;
-        }
-      `}</style>
     </Layout>
   )
 }
