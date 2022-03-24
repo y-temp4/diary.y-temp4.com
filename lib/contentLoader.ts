@@ -31,7 +31,7 @@ export async function readContentFile({
   }
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
-  const { title = '', createdAt: rawCteatedAt, category } = matterResult.data
+  const { title = '', createdAt: rawCreatedAt, category } = matterResult.data
   const parsedContent = await remark().use(html).process(matterResult.content)
   const content = parsedContent.toString()
   const MAX_LENGTH = 90
@@ -42,7 +42,7 @@ export async function readContentFile({
     .substr(0, MAX_LENGTH)} ...`
   return {
     title,
-    createdAt: formatDate(rawCteatedAt),
+    createdAt: formatDate(rawCreatedAt),
     content,
     slug,
     category,
@@ -51,10 +51,10 @@ export async function readContentFile({
 }
 
 export async function readContentFiles({ fs }: { fs: Fs }) {
-  const promisses = listContentFiles({ fs }).map((filename) =>
+  const promises = listContentFiles({ fs }).map((filename) =>
     readContentFile({ fs, filename })
   )
-  const contents = await Promise.all(promisses)
+  const contents = await Promise.all(promises)
   return contents.sort(sortByProp('createdAt', true))
 }
 
