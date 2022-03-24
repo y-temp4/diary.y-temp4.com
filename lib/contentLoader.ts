@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import remark from 'remark'
+import { remark } from 'remark'
 import html from 'remark-html'
 import matter from 'gray-matter'
 import strip from 'strip-markdown'
