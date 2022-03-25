@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import * as path from 'path'
 import Layout from 'components/Layout'
