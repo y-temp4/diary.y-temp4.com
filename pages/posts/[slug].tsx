@@ -50,11 +50,6 @@ export default function PostPage({
           <PostList posts={relatedPosts} showCategory={false} />
         </>
       )}
-      <style jsx global>{`
-        .post-body > p {
-          margin-bottom: 1em;
-        }
-      `}</style>
     </Layout>
   )
 }
