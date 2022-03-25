@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import * as fs from 'fs'
 import * as path from 'path'
 import Layout from 'components/Layout'
 import { PostList } from 'components/PostList'
@@ -61,18 +60,15 @@ export default function PostPage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // @ts-ignore
-  const post = await readContentFile({ fs, slug: params.slug })
+  const post = await readContentFile(`${params?.slug}`)
   const postCategories = post.category || []
-  const relatedPosts = (await readContentFiles({ fs })).filter(
-    (relatedPost) => {
-      const hasCategory = (relatedPost.category || []).some((category) =>
-        postCategories.includes(category)
-      )
-      const isSamePost = relatedPost.slug === params?.slug
-      return hasCategory && !isSamePost
-    }
-  )
+  const relatedPosts = (await readContentFiles()).filter((relatedPost) => {
+    const hasCategory = (relatedPost.category || []).some((category) =>
+      postCategories.includes(category)
+    )
+    const isSamePost = relatedPost.slug === params?.slug
+    return hasCategory && !isSamePost
+  })
   return {
     props: {
       post,
@@ -82,7 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = listContentFiles({ fs }).map((filename) => ({
+  const paths = listContentFiles().map((filename) => ({
     params: {
       slug: path.parse(filename).name,
     },

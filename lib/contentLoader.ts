@@ -10,25 +10,17 @@ import { Post } from 'types/post'
 const DIR = path.join(process.cwd(), 'contents')
 const EXTENSION = '.md'
 
-type Fs = typeof fs
-
-export function listContentFiles({ fs }: { fs: Fs }) {
+export function listContentFiles() {
   const filenames = fs.readdirSync(DIR)
   return filenames.filter((filename) => path.parse(filename).ext === EXTENSION)
 }
 
-export async function readContentFile({
-  fs,
-  filename,
-  slug,
-}: {
-  fs: Fs
-  filename: string
-  slug?: string
-}): Promise<Post> {
-  if (slug === undefined) {
-    slug = path.parse(filename).name
-  }
+export async function readContentFile(filename: string): Promise<Post> {
+  console.log('filename', filename)
+  const slug = filename.endsWith(EXTENSION)
+    ? filename.slice(0, -EXTENSION.length)
+    : filename
+  console.log('slug', slug)
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
   const { title = '', createdAt: rawCreatedAt, category } = matterResult.data
@@ -50,9 +42,9 @@ export async function readContentFile({
   }
 }
 
-export async function readContentFiles({ fs }: { fs: Fs }) {
-  const promises = listContentFiles({ fs }).map((filename) =>
-    readContentFile({ fs, filename })
+export async function readContentFiles() {
+  const promises = listContentFiles().map((filename) =>
+    readContentFile(filename)
   )
   const contents = await Promise.all(promises)
   return contents.sort(sortByProp('createdAt', true))

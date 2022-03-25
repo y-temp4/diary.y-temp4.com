@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import * as fs from 'fs'
 import Layout from 'components/Layout'
 import { PostList } from 'components/PostList'
 import { readContentFiles } from 'lib/contentLoader'
@@ -19,10 +18,9 @@ export default function Category({ posts }: { posts: Post[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const posts = await readContentFiles({ fs })
+  const posts = await readContentFiles()
   const categoryPosts = posts.filter((post) =>
-    // @ts-ignore
-    (post.category || []).includes(params?.category)
+    (post.category || []).includes(`${params?.category}`)
   )
   return {
     props: {

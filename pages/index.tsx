@@ -37,7 +37,7 @@ const IndexPage = ({ posts }: { posts: Post[] }) => (
 export default IndexPage
 
 export async function getStaticProps() {
-  const posts = await readContentFiles({ fs })
+  const posts = await readContentFiles()
   const rss = generateRss(posts)
   const sitemap = generateSitemap(posts, categories)
   fs.writeFileSync('./public/rss.xml', rss)

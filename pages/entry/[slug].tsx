@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import * as fs from 'fs'
 import * as path from 'path'
 import Layout from 'components/Layout'
 import { listContentFiles, readContentFile } from 'lib/contentLoader'
@@ -41,8 +40,9 @@ export default function PostPage(params: Post) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // @ts-ignore
-  const content = await readContentFile({ fs, slug: params.slug })
+  console.log('`${params?.slug}`', `${params?.slug}`)
+
+  const content = await readContentFile(`${params?.slug}`)
   return {
     props: {
       ...content,
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = listContentFiles({ fs }).map((filename) => ({
+  const paths = listContentFiles().map((filename) => ({
     params: {
       slug: path.parse(filename).name,
     },
