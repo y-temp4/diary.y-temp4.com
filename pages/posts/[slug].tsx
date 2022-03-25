@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
+import { useEffect, useState } from 'react'
 import * as path from 'path'
 import Layout from 'components/Layout'
 import { CategoryLink } from 'components/CategoryLink'
@@ -11,12 +12,24 @@ import {
 import type { Post } from 'types'
 
 export default function PostPage({
-  post,
+  postData,
   relatedPosts,
 }: {
-  post: Post
+  postData: Post
   relatedPosts: Post[]
 }) {
+  const [post, setPost] = useState(postData)
+  if (process.env.NODE_ENV === 'development') {
+    useEffect(() => {
+      const fn = async () => {
+        const res = await fetch(`/api/posts/${post.slug}`).then((res) =>
+          res.json()
+        )
+        setPost(res.postData)
+      }
+      fn()
+    }, [])
+  }
   return (
     <Layout
       title={post.title}
@@ -51,8 +64,8 @@ export default function PostPage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await readContentFile(`${params?.slug}`)
-  const postCategories = post.category || []
+  const postData = await readContentFile(`${params?.slug}`)
+  const postCategories = postData.category || []
   const relatedPosts = (await readContentFiles()).filter((relatedPost) => {
     const hasCategory = (relatedPost.category || []).some((category) =>
       postCategories.includes(category)
@@ -62,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
   return {
     props: {
-      post,
+      postData,
       relatedPosts,
     },
   }

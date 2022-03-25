@@ -7,19 +7,22 @@ import strip from 'strip-markdown'
 import { formatDate } from 'lib/date'
 import { Post } from 'types/post'
 
-const DIR = path.join(process.cwd(), 'contents')
-const EXTENSION = '.md'
+const POSTS_DIR = path.join(process.cwd(), 'contents')
+const POST_EXTENSION = '.md'
 
 export function listContentFiles() {
-  const filenames = fs.readdirSync(DIR)
-  return filenames.filter((filename) => path.parse(filename).ext === EXTENSION)
+  const filenames = fs.readdirSync(POSTS_DIR)
+  return filenames.filter(
+    (filename) => path.parse(filename).ext === POST_EXTENSION
+  )
 }
 
 export async function readContentFile(filename: string): Promise<Post> {
-  const slug = filename.endsWith(EXTENSION)
-    ? filename.slice(0, -EXTENSION.length)
-    : filename
-  const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
+  const slug = path.parse(filename).name
+  const raw = fs.readFileSync(
+    path.join(POSTS_DIR, `${slug}${POST_EXTENSION}`),
+    'utf8'
+  )
   const matterResult = matter(raw)
   const { title = '', createdAt: rawCreatedAt, category } = matterResult.data
   const parsedContent = await remark()
