@@ -19,6 +19,9 @@ export default function PostPage({
   relatedPosts: Post[]
 }) {
   const [post, setPost] = useState(postData)
+  useEffect(() => {
+    setPost(postData)
+  }, [postData])
   if (process.env.NODE_ENV === 'development') {
     useEffect(() => {
       const fn = async () => {
@@ -28,7 +31,7 @@ export default function PostPage({
         setPost(res.postData)
       }
       fn()
-    }, [])
+    }, [post.slug])
   }
   return (
     <Layout
