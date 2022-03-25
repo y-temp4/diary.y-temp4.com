@@ -19,7 +19,7 @@ a {
 }
 
 .post-body > p {
-  margin-bottom: 1em;
+  @apply mb-4 text-lg;
 }
 
 .post-body > ul {
