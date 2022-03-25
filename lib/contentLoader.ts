@@ -1,7 +1,7 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import fs from 'fs'
+import path from 'path'
 import { remark } from 'remark'
-import html from 'remark-html'
+import remarkHtml from 'remark-html'
 import matter from 'gray-matter'
 import strip from 'strip-markdown'
 import { formatDate } from 'lib/date'
@@ -22,7 +22,9 @@ export async function readContentFile(filename: string): Promise<Post> {
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
   const { title = '', createdAt: rawCreatedAt, category } = matterResult.data
-  const parsedContent = await remark().use(html).process(matterResult.content)
+  const parsedContent = await remark()
+    .use(remarkHtml, { sanitize: false })
+    .process(matterResult.content)
   const content = parsedContent.toString()
   const MAX_LENGTH = 90
   const description = `${(
