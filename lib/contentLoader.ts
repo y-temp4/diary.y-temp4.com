@@ -16,11 +16,9 @@ export function listContentFiles() {
 }
 
 export async function readContentFile(filename: string): Promise<Post> {
-  console.log('filename', filename)
   const slug = filename.endsWith(EXTENSION)
     ? filename.slice(0, -EXTENSION.length)
     : filename
-  console.log('slug', slug)
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
   const { title = '', createdAt: rawCreatedAt, category } = matterResult.data
