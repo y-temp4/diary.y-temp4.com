@@ -27,8 +27,8 @@ const IndexPage = ({ posts }: { posts: Post[] }) => (
       <a href="http://y-temp4.com" target="_blank" className="block">
         About me
       </a>
-      <Link href="/rss.xml">
-        <a className="block">rss</a>
+      <Link href="/rss.xml" className="block">
+        rss
       </Link>
     </footer>
   </>
