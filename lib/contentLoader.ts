@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
+import removeComments from 'remark-remove-comments'
 import matter from 'gray-matter'
 import strip from 'strip-markdown'
 import { formatDate } from 'lib/date'
@@ -27,6 +28,7 @@ export async function readContentFile(filename: string): Promise<Post> {
   const { title = '', createdAt: rawCreatedAt, category } = matterResult.data
   const parsedContent = await remark()
     .use(remarkHtml, { sanitize: false })
+    .use(removeComments)
     .process(matterResult.content)
   const content = parsedContent.toString()
   const MAX_LENGTH = 90
