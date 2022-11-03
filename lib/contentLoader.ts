@@ -52,11 +52,11 @@ export async function readContentFiles() {
     readContentFile(filename)
   )
   const contents = await Promise.all(promises)
-  return contents.sort(sortByProp('createdAt', true))
+  return contents.sort(sortByProp('createdAt'))
 }
 
-function sortByProp(name: string, reversed: boolean) {
-  return (a: any, b: any) => {
+function sortByProp<T>(name: keyof T, reversed: boolean = true) {
+  return (a: T, b: T) => {
     if (reversed) {
       return a[name] < b[name] ? 1 : -1
     } else {

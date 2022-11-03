@@ -1,9 +1,8 @@
-import type { VFC } from 'react'
 import Link from 'next/link'
 
 type CategoryLinkProps = { category: string }
 
-export const CategoryLink: VFC<CategoryLinkProps> = ({ category }) => {
+export const CategoryLink = ({ category }: CategoryLinkProps) => {
   return (
     <Link
       href={`/categories/${category}`}
