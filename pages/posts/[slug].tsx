@@ -39,8 +39,8 @@ export default function PostPage({
       pagePath={`/posts/${post.slug}`}
       description={post.description}
     >
-      <h1 className="font-bold text-3xl">{post.title}</h1>
       <time className="text-gray-700 mb-1 block">{post.createdAt}</time>
+      <h1 className="font-bold text-4xl mb-2">{post.title}</h1>
       {post.category && (
         <ul className="mb-3">
           {post.category.map((category) => (
@@ -51,7 +51,7 @@ export default function PostPage({
         </ul>
       )}
       <article
-        className="post-body"
+        className="post-body mt-5"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
       {!!relatedPosts.length && (

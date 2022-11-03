@@ -12,15 +12,15 @@ export function PostList({
   return (
     <>
       {posts.map((post) => (
-        <article className="mb-4" key={post.createdAt}>
+        <article className="mb-4 flex flex-col" key={post.createdAt}>
+          <time className="text-sm text-gray-700 block">{post.createdAt}</time>
           <h2 className="text-2xl font-bold">
-            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+            <Link href={`/posts/${post.slug}`} className="hover:no-underline">
+              {post.title}
+            </Link>
           </h2>
-          <time className="text-sm text-gray-700 block mb-1">
-            {post.createdAt}
-          </time>
           {showCategory && post.category && (
-            <ul>
+            <ul className="mt-2">
               {post.category.map((category) => (
                 <li key={category}>
                   <CategoryLink category={category} />
